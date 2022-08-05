@@ -1,0 +1,642 @@
+@import url(fonts/Metripolis/metropolis-font.css);
+
+:root {
+    --primary: #A28067
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    font: inherit;
+    font-family: 'Metropolis';
+    transition: all linear .2s;
+}
+
+ul,
+li {
+    list-style: none;
+    padding: 0;
+}
+
+a,
+a:hover,
+a:focus,
+a:focus-within {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #A28067;
+}
+
+img {
+    width: 100%;
+}
+
+.prm-link {
+    background-color: #A28067;
+    color: #fff;
+    border: unset;
+    border-radius: 0;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 13px;
+    display: inline-block;
+    width: fit-content;
+    border: 1px solid #A28067;
+}
+
+.prm-link:hover {
+    background-color: #fff;
+    color: #A28067;
+}
+
+
+/* Header */
+.for-mobile{
+    display: none;
+}
+header {
+    padding: 5px 0;
+}
+
+.social-links ul,
+.user-action {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.social-links a,
+.user-action a {
+    font-size: 20px;
+}
+
+.cart span {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.logo {
+    margin: auto;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.mid-line {
+    font-size: 14px;
+    text-align: center;
+}
+
+/* NAV BAR */
+.lwr-nav {
+    margin: auto;
+    width: fit-content;
+}
+
+.lwr-nav .nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.lwr-nav ul li a {
+    color: #333;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 14px;
+    display: block;
+    position: relative;
+    z-index: 3;
+    text-transform: uppercase;
+}
+
+.lwr-nav ul li a:hover {
+    color: var(--primary);
+}
+
+.lwr-nav ul li a.active {
+    color: var(--primary);
+    border-bottom: 1px solid var(--primary);
+}
+
+.collapse.navbar-collapse.mobile-nav {
+    background: #eee;
+    text-align: center;
+    overflow: hidden;
+}
+
+.collapse.navbar-collapse.mobile-nav li {
+    margin: 5px 0;
+}
+
+.collapse.navbar-collapse.mobile-nav li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.sub-menu-parent {
+    position: relative;
+}
+
+.sub-menu {
+    visibility: hidden;
+    /* hides sub-menu */
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-2em);
+    z-index: 2;
+    transition: all 0.1s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
+
+.sub-menu-parent a:focus~.sub-menu,
+.sub-menu-parent a:focus-within~.sub-menu,
+.sub-menu-parent a:hover~.sub-menu,
+.sub-menu:hover {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0%);
+    transition-delay: 0s, 0s, 0.3s;
+    z-index: 999;
+}
+
+nav a {
+    display: block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+}
+
+nav ul,
+nav ul li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav>ul {
+    text-align: center;
+}
+
+nav>ul>li {
+    display: inline-block;
+    border-left: solid 1px #aaa;
+}
+
+nav>ul>li:first-child {
+    border-left: none;
+}
+
+.sub-menu {
+    background: #fff;
+    width: calc(100% + 120px);
+    box-shadow: 0 0 10px 3px #eee;
+}
+
+.sub-menu-parent>a::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f078";
+    margin-left: 5px;
+}
+
+
+#menuToggle {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#menuToggle input {
+    display: flex;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+#menuToggle span {
+    display: flex;
+    width: 29px;
+    height: 2px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #333;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 5px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked~span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-3px, -1px);
+    background: #36383F;
+}
+
+#menuToggle input:checked~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked~span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu {
+    position: absolute;
+    width: 250px;
+    box-shadow: 0 0 10px #85888C;
+    margin: -63px 0 0 -50px;
+    padding: 50px;
+    padding-top: 100px;
+    background-color: #F5F6FA;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    height: 100vh;
+    overflow: auto;
+}
+
+#menu li {
+    padding: 0;
+}
+
+#menuToggle input:checked~ul {
+    transform: none;
+}
+.sub-menu-box{
+    max-height: 0;
+    overflow: hidden;
+    transition: all linear .4s;
+}
+.submenu.active .sub-menu-box{
+    transition: all linear .4s;
+    max-height: 1000px;
+}
+.sub-menu-box{
+    margin-left: 15px;
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+/* Hero Section Slider */
+.slider .item img {
+    object-fit: cover;
+    object-position: top;
+}
+
+.slideshow {
+    max-width: 1300px;
+    margin: auto;
+}
+
+.hero-sec-slider {
+    margin: 20px 0;
+}
+
+
+
+
+
+
+/* Subscribe Newsletter */
+.subs-news {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subs-news .content {
+    background: #fff;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    min-width: 200px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.subs-news .content h1 {
+    font-size: 30px;
+    margin-top: 0;
+}
+
+.subs-news .content section {
+    color: #929DA6;
+    font-size: 15px;
+}
+
+.subs-news .content .email-input {
+    padding: 15px;
+}
+
+.subs-news .content .email-input input {
+    border: unset;
+    background-color: #e6e6e6;
+    padding: 15px;
+    font-size: 13px;
+    border-radius: 0;
+    width: 250px;
+    border: 1px solid #e6e6e6;
+}
+
+.subs-news .content .email-input input:focus,
+.subs-news .content .email-input button:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 720px) {
+    .subs-news .content {
+        margin-right: 20px !important;
+        margin-left: 20px !important;
+        padding: 15px;
+    }
+
+    .subs-news .content .email-input input {
+        width: 200px;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+
+/* About Us Section */
+.about-us {
+    text-align: center;
+}
+
+.about-us h1 {
+    font-size: 30px;
+    margin-top: 0;
+}
+
+.about-us p {
+    max-width: 750px;
+    margin: auto;
+}
+
+
+
+/* Categories Section */
+.cat-sec {
+    padding: 50px 0;
+}
+
+.cat-box {
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    position: relative;
+    cursor: pointer;
+    margin: 15px 0;
+}
+
+.cat-box:hover .cat-overlay {
+    opacity: .5;
+}
+
+.cat-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #A28067;
+    opacity: 0;
+    z-index: 1;
+}
+
+.cat-det span {
+    font-size: 25px;
+    color: #fff;
+    font-weight: 600;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cat-det {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    opacity: 0;
+}
+
+.cat-box:hover .cat-det {
+    opacity: 1;
+}
+
+.cat-det a {
+    display: block;
+    background-color: #fff;
+    color: #A28067;
+    font-weight: 600;
+}
+
+.cat-det a:hover {
+    background-color: #A28067;
+    color: #fff;
+}
+
+
+
+/* Categories Products */
+.cat-prod-list {
+    padding: 100px 0;
+}
+
+.prod-box {
+    margin: 20px 0;
+}
+
+.cat-head {
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.prod-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #333;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.prod-price {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.prod-box .prm-link {
+    margin-top: 10px;
+}
+
+
+
+
+
+/* Footer */
+footer {
+    background: #111;
+    padding: 50px 0 10px 0;
+}
+
+footer a {
+    color: #fff;
+    margin: 20px 0;
+    display: block;
+}
+
+.lwr-footer a {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.lwr-footer p {
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+/* Visit Shop Section */
+.shop-ills {
+    background: url(https://cdn.shopify.com/s/files/1/1645/1869/files/image4_e0237c50-56c2-44cf-8c87-5dcfd6b18b94_1080x.jpg?v=1607197361);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    flex-basis: 70%;
+}
+
+.visit-shop {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+}
+
+.shop-det {
+    flex-basis: 30%;
+    padding: 20px;
+}
+
+.shop-det h1 {
+    font-size: 40px;
+    font-weight: 400;
+    color: #999;
+}
+
+.shop-det h3 {
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0;
+    margin-top: 20px;
+    color: #333;
+}
+
+.shop-det p {
+    margin: 0;
+    color: #333;
+}
+
+.shop-det .prm-link {
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+/* Media Queries */
+@media only screen and (max-width: 991px) {
+    .lwr-nav .nav-bar {
+        justify-content: center;
+    }
+
+    .mid-line {
+        font-size: 13px;
+        max-width: 350px;
+        margin: auto;
+        line-height: 1.3;
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    .for-desktop {
+        display: none;
+    }
+    .for-mobile{
+        display: block;
+    }
+    .for-mob-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .for-mob-head .logo-text {
+        width: 180px;
+    }
+
+    .cat-box .cat-det {
+        opacity: 1;
+    }
+
+    .cat-box .cat-overlay {
+        opacity: .5;
+    }
+
+    .cat-box {
+        height: 370px;
+    }
+}
